@@ -11,7 +11,7 @@ body {
 
     border: 1px solid #bbb;
     box-shadow: 2px 2px 2px #bbb;
-
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0, 255, 179, 0.925));
 }
 
 .input-pane {
@@ -50,11 +50,21 @@ body {
     color: red
 }
 
-/*.input-pane  #his-btn {
-
-}*/
-
 .input-pane  #his-btn.open {
     background-color: rgb(0, 132, 255);
 }
 
+.delete-list.open {
+    color: rgb(0, 0, 0);
+}
+
+.delete-list{width: 1.5em;
+    text-align: center;
+    border: 1px solid #bbb;
+    color: #ccc;
+    font-size: 1em;
+    font-weight: 900;
+
+    user-select: none;
+
+}
