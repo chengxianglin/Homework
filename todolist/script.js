@@ -4,7 +4,6 @@
 let todoItems = [];
 let finishedItems = [];
 
-
 function renderTodoItemList(todoItems, finishedItems) {
 
     let paneEl = document.querySelector("#todolist > .list-pane");
@@ -20,13 +19,12 @@ function renderTodoItemList(todoItems, finishedItems) {
 
         inputEl.addEventListener("change", (e) => {
             finishedItems.push(item);
-            todoItems.splice(i, 1);//删除todo，放到finished
+            todoItems.splice(i, 1);
 
             console.log("finshed:", i, todoItems, finishedItems );
             renderTodoItemList(todoItems, finishedItems);
 
         });
-
         let titleEl = document.createElement("div");
         titleEl.className = "title";
 
@@ -49,16 +47,13 @@ function renderTodoItemList(todoItems, finishedItems) {
             renderTodoItemList(todoItems, finishedItems);
         });
 
-        
-        
         let deleteBtn = document.createElement("Button");
         deleteBtn.className="delete-list"
         deleteBtn.innerText = "X";
 
-        if (item.isDelete) {
+        if (item.isdelete) {
             deleteBtn.classList.add("open");
         }
-
         deleteBtn.addEventListener("click", (e) => {
             console.log("click: ", item);
             if (item.deleteBtn) {
@@ -66,27 +61,23 @@ function renderTodoItemList(todoItems, finishedItems) {
             } else {
                 item.deleteBtn = true;
             }
-
-            renderTodoItemList(todoItems, finishedItems);
+            renderTodoItemList(todoItems,finishedItems);
         });
-          
+        deleteBtn.addEventListener("click", (e) => {
+            todoItems.splice(i, 1);
+            console.log("delete:", i, todoItems, finishedItems);
+        });
+        
         titleEl.innerText = item.title;
         itemDiv.append(inputEl);
         itemDiv.append(titleEl);
         itemDiv.append(importanceEl);
         itemDiv.append(deleteBtn);
-        
         paneEl.append(itemDiv);
-  
     }
 }
 
-      
-        
-    
-
-
-/*function renderFinishedItemList(todoItems, finishedItems) {
+function renderFinishedItemList(todoItems, finishedItems) {
 
     let paneEl = document.querySelector("#todolist > .list-pane");
     paneEl.innerHTML = "";
@@ -95,7 +86,6 @@ function renderTodoItemList(todoItems, finishedItems) {
         let item = finishedItems[i];
         let itemDiv = document.createElement("div");
         itemDiv.className = "todo-item";
-
 
         let titleEl = document.createElement("div");
         titleEl.className = "title";
@@ -107,37 +97,14 @@ function renderTodoItemList(todoItems, finishedItems) {
             importanceEl.classList.add("open");
         } 
         
-        if (item.isDelete) { //delet
-            deleteBtn.classList.add("open");
-        }
-        deleteBtn.addEventListener("click", (e) => {
-            console.log("click: ", item);
-            if (item.isDelete) {
-                item.isDelete = false;
-            } else {
-                item.isDelete = true;
-            }  
-            renderTodoItemList(todoItems, finishedItems);
-        }); 
-
-        deleteBtn.addEventListener("delete", (e) => {//reach delete
-            deletedItems.push(item);
-            todoItems.splice(i, 1);
-            console.log("deleted:", i, todoItems, deletedItems);
-            renderTodoItemList(todoItems, finishedItems);
-        });
-        
-
         titleEl.innerText = item.title;
 
         itemDiv.append(titleEl);
         itemDiv.append(importanceEl);
-        itemDiv.append(deleteBtn)
         paneEl.append(itemDiv);
     }
 
-}*/
-
+}
 
 function renderInputPane(todoItems) {
     let inputPaneEl = document.querySelector("#todolist > .input-pane");
@@ -167,10 +134,8 @@ function renderInputPane(todoItems) {
             renderFinishedItemList(todoItems, finishedItems)
         }
     });
-
-    // let btnEl = document.querySelector("#todolist #add-btn");
 }
 
 renderInputPane(todoItems, finishedItems);
 renderTodoItemList(todoItems, finishedItems);
-renderFinishedItemList(todoItems,finishedItems);
+
