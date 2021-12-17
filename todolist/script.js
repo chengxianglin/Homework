@@ -28,7 +28,7 @@ function renderTodoItemList(todoItems, finishedItems) {
         let titleEl = document.createElement("div");
         titleEl.className = "title";
 
-        let importanceEl = document.createElement("div");//开始创建重点标记
+        let importanceEl = document.createElement("div");
         importanceEl.className = "important-flag"
         importanceEl.innerText = "!";
 
