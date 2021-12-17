@@ -4,6 +4,7 @@
 let todoItems = [];
 let finishedItems = [];
 
+
 function renderTodoItemList(todoItems, finishedItems) {
 
     let paneEl = document.querySelector("#todolist > .list-pane");

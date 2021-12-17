@@ -5,13 +5,18 @@ body {
     justify-content: center;
 }
 
+#title{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+}
 .todolist-panel {
-    width: 20em;
+    width: 45em;
     min-height: 25em;
 
     border: 1px solid #bbb;
     box-shadow: 2px 2px 2px #bbb;
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0, 255, 179, 0.925));
+    background-image: linear-gradient();
 }
 
 .input-pane {
@@ -34,6 +39,9 @@ body {
 .list-pane > .todo-item > .title {
     flex: 1 1 8em;
 }
+.input-pane:hover{
+    background-color: rgb(59, 143, 143);
+}
 
 .important-flag {
     width: 1.5em;
@@ -45,20 +53,32 @@ body {
 
     user-select: none;
 }
-
-.important-flag.open {
-    color: red
+.important-flag:hover{
+    background-color: rgb(56, 99, 99);
 }
 
+.important-flag.open {
+    color: red;
+}
+
+.input-pane #add-btn:hover{
+    background-color: rgb(96, 160, 96);
+}
+.input-pane #his-btn:hover{
+background-color: rgb(96, 160, 96);
+}
 .input-pane  #his-btn.open {
-    background-color: rgb(0, 132, 255);
+    background-color: rgb(67, 109, 109);
 }
 
 .delete-list{width: 1.5em;
     text-align: center;
     border: 1px solid #bbb;
-    color: cornflowerblue;
+    color: rgb(92, 129, 92);
     font-size: 1em;
     font-weight: 500;
     user-select: none;
+}
+.delete-list:hover{
+    background-color: rgb(55, 95, 95);
 }
