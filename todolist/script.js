@@ -17,7 +17,7 @@ function renderTodoItemList(todoItems, finishedItems) {
         let inputEl = document.createElement("input");
         inputEl.type = "checkbox";
 
-        inputEl.addEventListener("change", (e) => {
+        inputEl.addEventListener("change", () => {
             finishedItems.push(item);
             todoItems.splice(i, 1);
 
@@ -56,17 +56,17 @@ function renderTodoItemList(todoItems, finishedItems) {
         }
         deleteBtn.addEventListener("click", (e) => {
             console.log("click: ", item);
-            if (item.deleteBtn) {
-                item.deleteBtn = false;
+            if (item.isdelete) {
+                item.isdelete = false;
             } else {
-                item.deleteBtn = true;
+                item.isdelete = true;
             }
+            todoItems.splice(i, 1);
+
+            console.log("delete:", i, todoItems, finishedItems);
             renderTodoItemList(todoItems,finishedItems);
         });
-        deleteBtn.addEventListener("click", (e) => {
-            todoItems.splice(i, 1);
-            console.log("delete:", i, todoItems, finishedItems);
-        });
+
         
         titleEl.innerText = item.title;
         itemDiv.append(inputEl);
