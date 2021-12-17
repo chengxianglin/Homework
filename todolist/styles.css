@@ -62,6 +62,3 @@ body {
     font-weight: 500;
     user-select: none;
 }
-.delete-list.open {
-    color: rgb(0, 0, 0);
-}

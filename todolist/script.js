@@ -28,7 +28,7 @@ function renderTodoItemList(todoItems, finishedItems) {
         let titleEl = document.createElement("div");
         titleEl.className = "title";
 
-        let importanceEl = document.createElement("div");//开始创建重点标记
+        let importanceEl = document.createElement("div");
         importanceEl.className = "important-flag"
         importanceEl.innerText = "!";
 
@@ -56,18 +56,16 @@ function renderTodoItemList(todoItems, finishedItems) {
         }
         deleteBtn.addEventListener("click", (e) => {
             console.log("click: ", item);
-            if (item.deleteBtn) {
-                item.deleteBtn = false;
+            if (item.isdelete) {
+                item.isdelete = false;
             } else {
-                item.deleteBtn = true;
+                item.isdelete = true;
             }
-            renderTodoItemList(todoItems,finishedItems);
-        });
-        deleteBtn.addEventListener("click", (e) => {
             todoItems.splice(i, 1);
             console.log("delete:", i, todoItems, finishedItems);
-        });
         
+            renderTodoItemList(todoItems,finishedItems);
+        });
         titleEl.innerText = item.title;
         itemDiv.append(inputEl);
         itemDiv.append(titleEl);
